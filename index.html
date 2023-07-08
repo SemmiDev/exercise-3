@@ -3,133 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Go Spotify</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,600&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-      }
-    </style>
-
+    <title>Songong</title>
     <link href="style.css" rel="stylesheet" />
+    <link href="custom.css" rel="stylesheet" />
   </head>
   <body>
-    <div
-      id="modal"
-      class="hidden fixed top-24 inset-0 flex items-center justify-center"
-    >
-      <div class="bg-white p-4 max-w-md mx-auto rounded shadow">
-        <div class="flex justify-between items-center">
-          <h2 class="text-xl font-semibold">Upload Song</h2>
-
-          <button id="closeModalBtn" class="group">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 group-group:bg-black group-hover:stroke-red-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </button>
+    <div id="modal" class="modal-create-song">
+      <div class="modal-create-song-wrapper">
+        <div class="modal-content-wrapper">
+          <h2 class="upload-title">Upload Song</h2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            id="closeModalBtn"
+            class="close-modal-icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
         </div>
-        <div class="mt-3">
-          <form action="">
-            <div class="mb-4">
-              <label
-                class="block text-gray-700 text-sm font-bold mb-2"
-                for="username"
-              >
-                Title
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="songname"
-                type="text"
-                placeholder="Title"
-              />
-            </div>
 
-            <div class="mb-4">
-              <label
-                class="block text-gray-700 text-sm font-bold mb-2"
-                for="username"
-              >
-                Artist
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="artist"
-                type="text"
-                placeholder="Artist"
-              />
-            </div>
+        <form id="new-song">
+          <div>
+            <label for="username">
+              Title
+            </label>
+            <input
+              id="songname"
+              type="text"
+              placeholder="Title"
+            />
+          </div>
 
-            <div class="mb-4">
-              <label
-                class="block text-gray-700 text-sm font-bold mb-2"
-                for="username"
-              >
-                Genre
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="genre"
-                type="text"
-                placeholder="Genre"
-              />
-            </div>
+          <div>
+            <label for="Artist">
+              Artist
+            </label>
+            <input
+              id="artist"
+              type="text"
+              placeholder="Artist"
+            />
+          </div>
 
-            <div class="mb-4">
-              <label
-                class="block text-gray-700 text-sm font-bold mb-2"
-                for="username"
-              >
-                Year
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="year"
-                type="text"
-                placeholder="Year"
-              />
-            </div>
+          <div>
+            <label for="genre">
+              Genre
+            </label>
+            <input
+              id="genre"
+              type="text"
+              placeholder="Genre"
+            />
+          </div>
 
-            <div class="mb-4">
-              <label
-                class="block text-gray-700 text-sm font -bold mb-2"
-                for="username"
-              >
-                Song File
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="songfile"
-                type="file"
-                placeholder="Song File"
-              />
-            </div>
+          <div>
+            <label for="year">
+              Year
+            </label>
+            <input
+              id="year"
+              type="text"
+              placeholder="Year"
+            />
+          </div>
 
-            <div class="flex justify-end">
-              <button class="
-              px-4 py-3 bg-black text-white rounded-md
-              ">Upload</button>
+          <div>
+            <div class="file-input-wrapper">
+              <input type="file" id="fileInput" />
+              <label class="file-input-label" for="fileInput">
+                <button class="file-input-button">Choose Song</button>
+              </label>
             </div>
-            </form>
-        </div>
+          </div>
+
+          <div class="button-position">
+            <button class="button-upload">
+              Upload
+            </button>
+          </div>
+        </form>
       </div>
     </div>
 
